@@ -1,0 +1,7 @@
+{
+    "@@locale": "en",
+    "login": "Login",
+    "@login": {
+        "description": "Text shown in the Login Page above TextInput"
+    }
+}
