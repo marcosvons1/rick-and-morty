@@ -3,5 +3,32 @@
     "login": "Login",
     "@login": {
         "description": "Text shown in the Login Page above TextInput"
+    },
+    "@@locale": "en",
+    "email": "Email",
+    "@email": {
+        "description": "Text shown in the TextFormField from the Login page"
+    },
+    "@@locale": "en",
+    "invalidEmail": "Invalid Email",
+    "@invalidEmail": {
+        "description": "Text shown in the TextFormField when the email is invalid"
+    },
+    "@@locale": "en",
+    "emptyEmail": "Email cannot be empty",
+    "@emptyEmail": {
+        "description": "Text shown in the TextFormField when the email is empty"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Text shown in the TextFormField from the Login page"
+    },
+    "invalidPassword": "Invalid password - Password must contain at least 8 characters, including UPPER/lowercase, numbers and special characters",
+    "@invalidPassword": {
+        "description": "Text shown in the TextFormField when the password is invalid"
+    },
+    "emptyPassword": "Password cannot be empty",
+    "@emptyPassword": {
+        "description": "Text shown in the TextFormField when the Password is empty"
     }
 }

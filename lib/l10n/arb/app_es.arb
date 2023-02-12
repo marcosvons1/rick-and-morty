@@ -3,5 +3,35 @@
    "login": "Login",
     "@login": {
         "description": "Texto mostrado en la Login Page arriba del TextInput"
+    },
+    "@@locale": "es",
+    "email": "Email",
+    "@email": {
+        "description": "Texto mostrado en el TextFormField de Login, parte Email"
+    },
+    "@@locale": "es",
+    "invalidEmail": "Email invalido",
+    "@invalidEmail": {
+        "description": "Texto mostrado en el  TextFormField cuando el email es invalido"
+    },
+     "@@locale": "es",
+    "emptyEmail": "El email no puede ser vacio",
+    "@emptyEmail": {
+        "description": "Texto mostrado en el TextFormField cuando el email es vacío"
+    },
+     "@@locale": "es",
+    "password": "Contraseña",
+    "@password": {
+        "description": "Texto mostrado en el TextFormField de Login, parte Password"
+    },
+    "@@locale": "es",
+    "invalidPassword": "Contraseña invalida - Debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+    "@invalidPassword": {
+        "description": "Texto mostrado en el  TextFormField cuando el email es invalido"
+    },
+     "@@locale": "es",
+    "emptyPassword": "La contraseña no puede ser vacía",
+    "@emptyPassword": {
+        "description": "Texto mostrado en el TextFormField cuando el Password es vacío"
     }
 }
