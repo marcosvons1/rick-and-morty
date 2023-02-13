@@ -1,45 +1,66 @@
-import 'package:auth/src/service/auth_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/lib.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class IAuthRepository {
-  Future<Either<Failure, void>> loginWithEmailAndPassword({
+  Future<Either<Failure, Unit>> loginWithEmailAndPassword({
     required String email,
     required String password,
   });
-  Future<Either<Failure, void>> registerWithEmailAndPassword({
+  Future<Either<Failure, Unit>> registerWithEmailAndPassword({
     required String email,
     required String password,
   });
-  Future<Either<Failure, void>> logout();
+  Future<Either<Failure, Unit>> logout();
+  Stream<Option<User>> get user;
 }
 
 class AuthRepository implements IAuthRepository {
-  AuthRepository({required IAuthService authService})
-      : _authService = authService;
-  final IAuthService _authService;
+  @override
+  Stream<Option<User>> get user =>
+      FirebaseAuth.instance.authStateChanges().map((User? user) {
+        if (user != null) {
+          return some(user);
+        } else {
+          return none();
+        }
+      });
 
   @override
-  Future<Either<Failure, void>> loginWithEmailAndPassword({
+  Future<Either<Failure, Unit>> loginWithEmailAndPassword({
     required String email,
     required String password,
-  }) {
-    // TODO: implement loginWithEmailAndPassword
-    throw UnimplementedError();
+  }) async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      return const Right(unit);
+    } catch (e) {
+      return const Left(Failure());
+    }
   }
 
   @override
-  Future<Either<Failure, void>> registerWithEmailAndPassword({
+  Future<Either<Failure, Unit>> registerWithEmailAndPassword({
     required String email,
     required String password,
-  }) {
-    // TODO: implement registerWithEmailAndPassword
-    throw UnimplementedError();
+  }) async {
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      return const Right(unit);
+    } catch (e) {
+      return const Left(Failure());
+    }
   }
 
   @override
-  Future<Either<Failure, void>> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Either<Failure, Unit>> logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return const Right(unit);
+    } catch (e) {
+      return const Left(Failure());
+    }
   }
 }

@@ -3,15 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_challenge/core/constants/string_constants.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
 import 'package:rick_and_morty_challenge/features/homepage/views/characters_list.dart';
-import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
+import 'package:rick_and_morty_challenge/features/login/views/login_page.dart';
+import 'package:rick_and_morty_challenge/features/sign_up/cubit/sign_up_cubit.dart';
 import 'package:rick_and_morty_challenge/l10n/l10n.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => const LoginPage());
-  }
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +16,8 @@ class LoginPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.whenOrNull(
-          authenticated: () => Navigator.of(context).push<void>(
-            CharactersList.route(),
-          ),
+          authenticated: () =>
+              Navigator.of(context).push<void>(CharactersList.route()),
         );
       },
       child: Scaffold(
@@ -31,7 +27,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(ImageConstants.rickAndMortyLogo),
-              BlocBuilder<LoginCubit, LoginState>(
+              BlocBuilder<SignUpCubit, SignUpState>(
                 builder: (context, state) {
                   return Column(
                     children: [
@@ -46,7 +42,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           onChanged: (value) =>
-                              context.read<LoginCubit>().emailChanged(value),
+                              context.read<SignUpCubit>().emailChanged(value),
                         ),
                       ),
                       Padding(
@@ -59,21 +55,21 @@ class LoginPage extends StatelessWidget {
                               invalid: () => l10n.invalidPassword,
                             ),
                           ),
-                          onChanged: (value) =>
-                              context.read<LoginCubit>().passwordChanged(value),
+                          onChanged: (value) => context
+                              .read<SignUpCubit>()
+                              .passwordChanged(value),
                         ),
                       ),
+                      GestureDetector(
+                        child: const Text('Login'),
+                        onTap: () {
+                          Navigator.of(context).push<void>(LoginPage.route());
+                        },
+                      ),
                       ElevatedButton(
-                        child: Text(l10n.login),
+                        child: const Text('SignUp'),
                         onPressed: () {
-                          context.read<LoginCubit>().loginSubmission();
-                          context.read<AuthBloc>().state.when(
-                                authenticated: () =>
-                                    Navigator.of(context).push<void>(
-                                  CharactersList.route(),
-                                ),
-                                unauthenticated: () {},
-                              );
+                          context.read<SignUpCubit>().signUpSubmission();
                         },
                       ),
                     ],

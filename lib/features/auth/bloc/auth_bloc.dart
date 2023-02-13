@@ -1,30 +1,37 @@
 import 'dart:async';
 
+import 'package:auth/auth.dart';
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
-part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(const _Unauthenticated()) {
+  AuthBloc({required IAuthRepository authRepository})
+      : _authRepository = authRepository,
+        super(const _Unauthenticated()) {
     on<_AuthStateChanges>(_onAuthStateChanged);
     on<_Logout>(_onLogout);
 
     add(const _AuthStateChanges());
   }
 
-  StreamSubscription<User?> _onAuthStateChanged(
+  final IAuthRepository _authRepository;
+
+  void _onAuthStateChanged(
     _AuthStateChanges event,
     Emitter<AuthState> emit,
   ) {
-    return FirebaseAuth.instance.authStateChanges().listen(
-          (User? user) => emit(
-            user == null ? const _Unauthenticated() : const _Authenticated(),
-          ),
-        );
+    _authRepository.user.listen((Option<User> user) {
+      user.fold(
+        () => emit(const _Unauthenticated()),
+        (_) => emit(const _Authenticated()),
+      );
+    });
   }
 
   FutureOr<void> _onLogout(

@@ -1,9 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@freezed
 part 'failures.freezed.dart';
 
+@freezed
 class Failure with _$Failure {
+  const factory Failure() = _Failure;
   const factory Failure.internalServerError() = InternalServerError;
   const factory Failure.networkError() = NetworkError;
   const factory Failure.cacheError() = CacheError;

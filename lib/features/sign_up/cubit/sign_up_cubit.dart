@@ -2,19 +2,18 @@ import 'dart:async';
 
 import 'package:auth/auth.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rick_and_morty_challenge/core/validators/email.dart';
 import 'package:rick_and_morty_challenge/core/validators/password.dart';
 
-part 'login_cubit.freezed.dart';
-part 'login_state.dart';
+part 'sign_up_cubit.freezed.dart';
+part 'sign_up_state.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit({required IAuthRepository authRepository})
+class SignUpCubit extends Cubit<SignUpState> {
+  SignUpCubit({required IAuthRepository authRepository})
       : _authRepository = authRepository,
-        super(const LoginState());
+        super(const SignUpState());
 
   final IAuthRepository _authRepository;
 
@@ -38,14 +37,15 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  FutureOr<void> loginSubmission() async {
+  FutureOr<void> signUpSubmission() async {
     try {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
 
       final email = state.email;
       final password = state.password;
 
-      final successOrFailure = await _authRepository.loginWithEmailAndPassword(
+      final successOrFailure =
+          await _authRepository.registerWithEmailAndPassword(
         email: email.value,
         password: password.value,
       );

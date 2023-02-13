@@ -8,6 +8,8 @@ environment:
   flutter: 3.3.10
 
 dependencies:
+  auth:
+    path: packages/auth
   bloc: ^8.1.1
   dartz: ^0.10.1
   firebase_auth: ^4.2.3
@@ -19,6 +21,7 @@ dependencies:
     sdk: flutter
   formz: ^0.4.1
   freezed_annotation: ^2.2.0
+  get_it: ^7.2.0
   intl: ^0.17.0
   json_annotation: ^4.7.0
 

@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  auth:
+    dependency: "direct main"
+    description:
+      path: "packages/auth"
+      relative: true
+    source: path
+    version: "0.1.0+1"
   bloc:
     dependency: "direct main"
     description:
@@ -190,6 +197,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.1"
+  dio:
+    dependency: transitive
+    description:
+      path: "packages/dio"
+      relative: true
+    source: path
+    version: "0.1.0+1"
   fake_async:
     dependency: transitive
     description:
@@ -308,6 +322,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.2.0"
   glob:
     dependency: transitive
     description:
