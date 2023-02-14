@@ -22,22 +22,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   final IAuthRepository _authRepository;
 
-  void _onAuthStateChanged(
+  Future<void> _onAuthStateChanged(
     _AuthStateChanges event,
     Emitter<AuthState> emit,
-  ) {
-    _authRepository.user.listen((Option<User> user) {
-      user.fold(
-        () => emit(const _Unauthenticated()),
-        (_) => emit(const _Authenticated()),
-      );
-    });
+  ) async {
+    //TODO: emit forEach
+    await emit.forEach(
+      _authRepository.user,
+      onData: (Option<User> user) {
+        return user.fold(
+          () => const _Unauthenticated(),
+          (_) => const _Authenticated(),
+        );
+      },
+    );
   }
 
   FutureOr<void> _onLogout(
     _Logout event,
     Emitter<AuthState> emit,
   ) async {
-    await FirebaseAuth.instance.signOut();
+    await _authRepository.logout();
   }
 }

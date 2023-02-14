@@ -4,9 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_challenge/core/injector/injector.dart';
 import 'package:rick_and_morty_challenge/core/theme/app_theme.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
-import 'package:rick_and_morty_challenge/features/homepage/views/characters_list.dart';
+import 'package:rick_and_morty_challenge/features/homepage/views/splash.dart';
 import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
-import 'package:rick_and_morty_challenge/features/login/views/login_page.dart';
 import 'package:rick_and_morty_challenge/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -14,44 +13,23 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: darkThemeData,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider<LoginCubit>(
-            create: (context) =>
-                LoginCubit(authRepository: getIt<IAuthRepository>()),
-          ),
-        ],
-        child: BlocListener<AuthBloc, AuthState>(
-          listener: (context, state) {
-            state.when(
-              authenticated: () => Navigator.of(context).push<void>(
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const CharactersList(),
-                ),
-              ),
-              unauthenticated: () =>
-                  Navigator.of(context).pushAndRemoveUntil<void>(
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => BlocProvider<LoginCubit>(
-                    create: (context) =>
-                        LoginCubit(authRepository: getIt<IAuthRepository>()),
-                    child: const LoginPage(),
-                  ),
-                ),
-                (_) => false,
-              ),
-            );
-          },
-          child: Scaffold(
-            body: Center(
-              child: Container(),
-            ),
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginCubit>(
+          create: (context) =>
+              LoginCubit(authRepository: getIt<IAuthRepository>()),
         ),
+        BlocProvider<AuthBloc>(
+          create: (context) =>
+              AuthBloc(authRepository: getIt<IAuthRepository>()),
+        ),
+      ],
+      child: MaterialApp(
+        theme: darkThemeData,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
       ),
     );
   }

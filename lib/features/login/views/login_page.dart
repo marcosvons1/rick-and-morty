@@ -4,6 +4,7 @@ import 'package:rick_and_morty_challenge/core/constants/string_constants.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
 import 'package:rick_and_morty_challenge/features/homepage/views/characters_list.dart';
 import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
+import 'package:rick_and_morty_challenge/features/sign_up/views/sign_up.dart';
 import 'package:rick_and_morty_challenge/l10n/l10n.dart';
 
 class LoginPage extends StatelessWidget {
@@ -40,10 +41,6 @@ class LoginPage extends StatelessWidget {
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: l10n.email,
-                            errorText: state.email.error?.when(
-                              empty: () => l10n.emptyEmail,
-                              invalid: () => l10n.invalidEmail,
-                            ),
                           ),
                           onChanged: (value) =>
                               context.read<LoginCubit>().emailChanged(value),
@@ -54,16 +51,18 @@ class LoginPage extends StatelessWidget {
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: l10n.password,
-                            errorText: state.password.error?.when(
-                              empty: () => l10n.emptyPassword,
-                              invalid: () => l10n.invalidPassword,
-                            ),
                           ),
+                          obscureText: true,
                           onChanged: (value) =>
                               context.read<LoginCubit>().passwordChanged(value),
                         ),
                       ),
                       ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            const Color(0xFF5CAD4A),
+                          ),
+                        ),
                         child: Text(l10n.login),
                         onPressed: () {
                           context.read<LoginCubit>().loginSubmission();
@@ -75,6 +74,28 @@ class LoginPage extends StatelessWidget {
                                 unauthenticated: () {},
                               );
                         },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Don't have an account? "),
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).push<void>(
+                                SignUpPage.route(),
+                              ),
+                              child: const Text(
+                                'Sign up!',
+                                style: TextStyle(
+                                  color: Color(0xFFa6eee6),
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   );

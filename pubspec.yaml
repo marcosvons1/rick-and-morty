@@ -8,6 +8,7 @@ environment:
   flutter: 3.3.10
 
 dependencies:
+  animated_splash_screen: ^1.3.0
   auth:
     path: packages/auth
   bloc: ^8.1.1
@@ -24,6 +25,8 @@ dependencies:
   get_it: ^7.2.0
   intl: ^0.17.0
   json_annotation: ^4.7.0
+  lottie: ^2.2.0
+  page_transition: ^2.0.9
 
 dev_dependencies:
   bloc_test: ^9.1.0
@@ -40,6 +43,7 @@ flutter:
   generate: true
   assets:
     - assets/images/
+    - assets/animations/
   # fonts:
   #   - family: 
   #     fonts: 
