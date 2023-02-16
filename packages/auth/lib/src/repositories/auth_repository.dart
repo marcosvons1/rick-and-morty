@@ -35,6 +35,15 @@ class AuthRepository implements IAuthRepository {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       return const Right(unit);
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case 'user-not-found':
+          return const Left(Failure.userNotFoundError());
+        case 'wrong-password':
+          return const Left(Failure.invalidCredentialsError());
+        default:
+          return const Left(Failure());
+      }
     } catch (e) {
       return const Left(Failure());
     }
@@ -49,6 +58,14 @@ class AuthRepository implements IAuthRepository {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       return const Right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        return const Left(
+          Failure.emailAlreadyExistsError(),
+        );
+      } else {
+        return const Left(Failure());
+      }
     } catch (e) {
       return const Left(Failure());
     }
