@@ -4,17 +4,14 @@
     "@login": {
         "description": "Text shown in the Login Page above TextInput"
     },
-    "@@locale": "en",
     "email": "Email",
     "@email": {
         "description": "Text shown in the TextFormField from the Login page"
     },
-    "@@locale": "en",
     "invalidEmail": "Invalid Email",
     "@invalidEmail": {
         "description": "Text shown in the TextFormField when the email is invalid"
     },
-    "@@locale": "en",
     "emptyEmail": "Email cannot be empty",
     "@emptyEmail": {
         "description": "Text shown in the TextFormField when the email is empty"
@@ -30,5 +27,37 @@
     "emptyPassword": "Password cannot be empty",
     "@emptyPassword": {
         "description": "Text shown in the TextFormField when the Password is empty"
+    },
+    "userNotFoundError": "User not found",
+    "@userNotFoundError": {
+        "description": "Text shown when the user is not found"
+    },
+    "invalidCredentialsError": "Invalid credentials",
+    "@invalidCredentialsError": {
+        "description": "Text shown when the credentials are invalid"
+    },
+    "unknownError": "Something went wrong",
+    "@unknownError": {
+        "description": "Text shown when an unknown error occurs"
+    },
+    "createAccount": "Don't have an account? ",
+    "@createAccount": {
+        "description": "Text shown in the Login Page to Sign Up"
+    },
+    "signUp": "Sign Up!",
+    "@signUp": {
+        "description": "Text shown in the Login Page to Sign Up"
+    },
+    "emailAlreadyExistsError": "This email is already in use",
+    "@emailAlreadyExistsError": {
+        "description": "Text shown when the email already exists"
+    },
+    "alreadyHaveAnAccount": "Already have an account? ",
+    "@alreadyHaveAnAccount": {
+        "description": "Text shown in the Sign Up Page to Login"
+    },
+    "logIn": "Log In",
+    "@logIn": {
+        "description": "Text shown in the Sign Up Page to Login"
     }
 }

@@ -2,6 +2,7 @@ import 'package:dio/lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:rick_and_morty_challenge/core/constants/dimens.dart';
 import 'package:rick_and_morty_challenge/core/constants/string_constants.dart';
 import 'package:rick_and_morty_challenge/features/login/views/login_page.dart';
 import 'package:rick_and_morty_challenge/features/sign_up/cubit/sign_up_cubit.dart';
@@ -9,6 +10,7 @@ import 'package:rick_and_morty_challenge/l10n/l10n.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
+  static const int errorMaxLines = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class SignUpForm extends StatelessWidget {
             SnackBar(
               content: Text(
                 state.failure == const Failure.emailAlreadyExistsError()
-                    ? 'This email is already in use'
-                    : 'Something went wrong',
+                    ? l10n.emailAlreadyExistsError
+                    : l10n.unknownError,
                 style: TextStyle(color: Theme.of(context).errorColor),
               ),
               backgroundColor: Theme.of(context).primaryColor,
@@ -35,13 +37,13 @@ class SignUpForm extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(ImageConstants.rickAndMortyLogo),
+          Image.asset(AssetConstants.rickAndMortyLogo),
           BlocBuilder<SignUpCubit, SignUpState>(
             builder: (context, state) {
               return Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(Spacers.small),
                     child: TextFormField(
                       decoration: InputDecoration(
                         labelText: l10n.email,
@@ -57,7 +59,7 @@ class SignUpForm extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(Spacers.small),
                     child: TextFormField(
                       decoration: InputDecoration(
                         labelText: l10n.password,
@@ -67,7 +69,7 @@ class SignUpForm extends StatelessWidget {
                                 invalid: () => l10n.invalidPassword,
                               )
                             : null,
-                        errorMaxLines: 3,
+                        errorMaxLines: errorMaxLines,
                       ),
                       obscureText: true,
                       onChanged: (value) =>
@@ -75,7 +77,8 @@ class SignUpForm extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: Spacers.large),
                     child: ElevatedButton(
                       onPressed: () {
                         if (state.status == FormzStatus.valid) {
@@ -87,12 +90,12 @@ class SignUpForm extends StatelessWidget {
                             ? const Color(0xFF5CAD4A)
                             : Colors.transparent,
                         fixedSize: Size(
-                          MediaQuery.of(context).size.width * 0.3,
-                          MediaQuery.of(context).size.height * 0.05,
+                          MediaQuery.of(context).size.width * Multipliers.x35,
+                          MediaQuery.of(context).size.height * Multipliers.x05,
                         ),
                       ),
                       child: Text(
-                        'Sign Up',
+                        l10n.signUp,
                         style: TextStyle(
                           color: state.status == FormzStatus.valid
                               ? Colors.white
@@ -104,11 +107,11 @@ class SignUpForm extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already have an account? '),
+                      Text(l10n.alreadyHaveAnAccount),
                       GestureDetector(
-                        child: const Text(
-                          'Log In',
-                          style: TextStyle(
+                        child: Text(
+                          l10n.logIn,
+                          style: const TextStyle(
                             color: Color(0xFFa6eee6),
                             decoration: TextDecoration.underline,
                             fontWeight: FontWeight.bold,

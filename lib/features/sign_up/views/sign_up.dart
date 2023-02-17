@@ -1,6 +1,7 @@
 import 'package:auth/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty_challenge/core/constants/dimens.dart';
 import 'package:rick_and_morty_challenge/core/injector/injector.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
 import 'package:rick_and_morty_challenge/features/homepage/views/characters_list.dart';
@@ -27,7 +28,7 @@ class SignUpPage extends StatelessWidget {
       },
       child: Scaffold(
         body: Container(
-          margin: const EdgeInsets.all(15),
+          margin: const EdgeInsets.all(Spacers.medium),
           child: BlocProvider(
             create: (context) =>
                 SignUpCubit(authRepository: getIt<IAuthRepository>()),

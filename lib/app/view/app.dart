@@ -5,7 +5,6 @@ import 'package:rick_and_morty_challenge/core/injector/injector.dart';
 import 'package:rick_and_morty_challenge/core/theme/app_theme.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
 import 'package:rick_and_morty_challenge/features/homepage/views/splash.dart';
-import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
 import 'package:rick_and_morty_challenge/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -13,17 +12,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<LoginCubit>(
-          create: (context) =>
-              LoginCubit(authRepository: getIt<IAuthRepository>()),
-        ),
-        BlocProvider<AuthBloc>(
-          create: (context) =>
-              AuthBloc(authRepository: getIt<IAuthRepository>()),
-        ),
-      ],
+    return BlocProvider<AuthBloc>(
+      create: (context) => AuthBloc(authRepository: getIt<IAuthRepository>()),
       child: MaterialApp(
         theme: darkThemeData,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
