@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
             authenticated: CharactersList.new,
             unauthenticated: LoginPage.new,
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: Theme.of(context).canvasColor,
           splashIconSize: MediaQuery.of(context).size.width * Multipliers.x5,
           splashTransition: SplashTransition.fadeTransition,
           pageTransitionType: PageTransitionType.fade,

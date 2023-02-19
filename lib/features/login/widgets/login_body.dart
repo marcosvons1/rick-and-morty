@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:rick_and_morty_challenge/core/constants/dimens.dart';
 import 'package:rick_and_morty_challenge/core/constants/string_constants.dart';
+import 'package:rick_and_morty_challenge/core/theme/app_theme.dart';
 import 'package:rick_and_morty_challenge/features/auth/bloc/auth_bloc.dart';
 import 'package:rick_and_morty_challenge/features/homepage/views/characters_list.dart';
 import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
@@ -16,6 +17,8 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final theme = Theme.of(context);
+
     return MultiBlocListener(
       listeners: [
         BlocListener<AuthBloc, AuthState>(
@@ -41,9 +44,8 @@ class LoginBody extends StatelessWidget {
                                 const Failure.invalidCredentialsError()
                             ? l10n.invalidCredentialsError
                             : l10n.unknownError,
-                    style: TextStyle(color: Theme.of(context).errorColor),
+                    textAlign: TextAlign.center,
                   ),
-                  backgroundColor: Theme.of(context).primaryColor,
                 ),
               );
             }
@@ -88,7 +90,10 @@ class LoginBody extends StatelessWidget {
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF5CAD4A),
+                            backgroundColor: (state.password.value != '' &&
+                                    state.email.value != '')
+                                ? theme.primaryColor
+                                : Palette.disabledButtonColor,
                             fixedSize: Size(
                               MediaQuery.of(context).size.width *
                                   Multipliers.x35,
@@ -96,9 +101,20 @@ class LoginBody extends StatelessWidget {
                                   Multipliers.x05,
                             ),
                           ),
-                          child: Text(l10n.login),
+                          child: Text(
+                            l10n.login,
+                            style: TextStyle(
+                              color: (state.password.value != '' &&
+                                      state.email.value != '')
+                                  ? theme.textTheme.button?.color
+                                  : theme.disabledColor,
+                            ),
+                          ),
                           onPressed: () {
-                            context.read<LoginCubit>().loginSubmission();
+                            if (state.password.value != '' &&
+                                state.email.value != '') {
+                              context.read<LoginCubit>().loginSubmission();
+                            }
                           },
                         ),
                       ),

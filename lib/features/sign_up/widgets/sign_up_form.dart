@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:rick_and_morty_challenge/core/constants/dimens.dart';
 import 'package:rick_and_morty_challenge/core/constants/string_constants.dart';
+import 'package:rick_and_morty_challenge/core/theme/app_theme.dart';
 import 'package:rick_and_morty_challenge/features/login/views/login_page.dart';
 import 'package:rick_and_morty_challenge/features/sign_up/cubit/sign_up_cubit.dart';
 import 'package:rick_and_morty_challenge/l10n/l10n.dart';
@@ -15,6 +16,7 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final theme = Theme.of(context);
 
     return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
@@ -27,9 +29,8 @@ class SignUpForm extends StatelessWidget {
                 state.failure == const Failure.emailAlreadyExistsError()
                     ? l10n.emailAlreadyExistsError
                     : l10n.unknownError,
-                style: TextStyle(color: Theme.of(context).errorColor),
+                style: TextStyle(color: theme.errorColor),
               ),
-              backgroundColor: Theme.of(context).primaryColor,
             ),
           );
         }
@@ -87,8 +88,8 @@ class SignUpForm extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: state.status == FormzStatus.valid
-                            ? const Color(0xFF5CAD4A)
-                            : Colors.transparent,
+                            ? theme.primaryColor
+                            : Palette.disabledButtonColor,
                         fixedSize: Size(
                           MediaQuery.of(context).size.width * Multipliers.x35,
                           MediaQuery.of(context).size.height * Multipliers.x05,
@@ -98,8 +99,8 @@ class SignUpForm extends StatelessWidget {
                         l10n.signUp,
                         style: TextStyle(
                           color: state.status == FormzStatus.valid
-                              ? Colors.white
-                              : Colors.grey,
+                              ? theme.textTheme.button?.color
+                              : theme.disabledColor,
                         ),
                       ),
                     ),
