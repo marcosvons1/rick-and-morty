@@ -1,7 +1,7 @@
-/// {@template dio}
+/// {@template core}
 /// A Very Good Project created by Very Good CLI.
 /// {@endtemplate}
-class Dio {
-  /// {@macro dio}
-  const Dio();
+class Core {
+  /// {@macro core}
+  const Core();
 }

@@ -5,11 +5,11 @@ import 'package:rick_and_morty_challenge/core/injector/injector.dart';
 import 'package:rick_and_morty_challenge/features/login/cubit/login_cubit.dart';
 import 'package:rick_and_morty_challenge/features/login/widgets/login_body.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => const LoginPage());
+    return MaterialPageRoute<void>(builder: (_) => const LoginView());
   }
 
   @override

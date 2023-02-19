@@ -1,4 +1,4 @@
-name: dio
+name: core
 description: A Very Good Project created by Very Good CLI.
 version: 0.1.0+1
 publish_to: none
@@ -8,6 +8,7 @@ environment:
   flutter: 3.3.10
 
 dependencies:
+  dartz: ^0.10.1
   flutter:
     sdk: flutter
   freezed_annotation: ^2.2.0
@@ -21,4 +22,3 @@ dev_dependencies:
   mocktail: ^0.3.0
   json_serializable: ^6.5.4
   very_good_analysis: ^3.1.0
-

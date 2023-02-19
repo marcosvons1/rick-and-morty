@@ -1,4 +1,4 @@
 /// A Very Good Project created by Very Good CLI.
-library dio;
+library core;
 
-export 'src/dio.dart';
+export 'src/src.dart';

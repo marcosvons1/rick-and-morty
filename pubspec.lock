@@ -141,6 +141,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  characters_package:
+    dependency: "direct main"
+    description:
+      path: "packages/characters"
+      relative: true
+    source: path
+    version: "1.2.1"
   checked_yaml:
     dependency: transitive
     description:
@@ -176,6 +183,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
+  core:
+    dependency: "direct main"
+    description:
+      path: "packages/core"
+      relative: true
+    source: path
+    version: "0.1.0+1"
   coverage:
     dependency: transitive
     description:
@@ -214,10 +228,10 @@ packages:
   dio:
     dependency: "direct main"
     description:
-      path: "packages/dio"
-      relative: true
-    source: path
-    version: "0.1.0+1"
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -357,6 +371,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  hive:
+    dependency: transitive
+    description:
+      name: hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.3"
   http_multi_server:
     dependency: transitive
     description:

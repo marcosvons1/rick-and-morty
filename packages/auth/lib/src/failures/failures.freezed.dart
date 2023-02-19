@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Failure {
+mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
@@ -67,7 +67,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -85,7 +85,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -101,7 +101,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -119,15 +119,16 @@ mixin _$Failure {
 }
 
 /// @nodoc
-abstract class $FailureCopyWith<$Res> {
-  factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
-      _$FailureCopyWithImpl<$Res, Failure>;
+abstract class $AuthFailureCopyWith<$Res> {
+  factory $AuthFailureCopyWith(
+          AuthFailure value, $Res Function(AuthFailure) then) =
+      _$AuthFailureCopyWithImpl<$Res, AuthFailure>;
 }
 
 /// @nodoc
-class _$FailureCopyWithImpl<$Res, $Val extends Failure>
-    implements $FailureCopyWith<$Res> {
-  _$FailureCopyWithImpl(this._value, this._then);
+class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
+    implements $AuthFailureCopyWith<$Res> {
+  _$AuthFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -136,34 +137,35 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure>
 }
 
 /// @nodoc
-abstract class _$$_FailureCopyWith<$Res> {
-  factory _$$_FailureCopyWith(
-          _$_Failure value, $Res Function(_$_Failure) then) =
-      __$$_FailureCopyWithImpl<$Res>;
+abstract class _$$_AuthFailureCopyWith<$Res> {
+  factory _$$_AuthFailureCopyWith(
+          _$_AuthFailure value, $Res Function(_$_AuthFailure) then) =
+      __$$_AuthFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$_Failure>
-    implements _$$_FailureCopyWith<$Res> {
-  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+class __$$_AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_AuthFailure>
+    implements _$$_AuthFailureCopyWith<$Res> {
+  __$$_AuthFailureCopyWithImpl(
+      _$_AuthFailure _value, $Res Function(_$_AuthFailure) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Failure implements _Failure {
-  const _$_Failure();
+class _$_AuthFailure implements _AuthFailure {
+  const _$_AuthFailure();
 
   @override
   String toString() {
-    return 'Failure()';
+    return 'AuthFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Failure);
+        (other.runtimeType == runtimeType && other is _$_AuthFailure);
   }
 
   @override
@@ -233,7 +235,7 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -254,7 +256,7 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -273,7 +275,7 @@ class _$_Failure implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -294,8 +296,8 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements Failure {
-  const factory _Failure() = _$_Failure;
+abstract class _AuthFailure implements AuthFailure {
+  const factory _AuthFailure() = _$_AuthFailure;
 }
 
 /// @nodoc
@@ -307,7 +309,7 @@ abstract class _$$InternalServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$InternalServerErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$InternalServerError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InternalServerError>
     implements _$$InternalServerErrorCopyWith<$Res> {
   __$$InternalServerErrorCopyWithImpl(
       _$InternalServerError _value, $Res Function(_$InternalServerError) _then)
@@ -321,7 +323,7 @@ class _$InternalServerError implements InternalServerError {
 
   @override
   String toString() {
-    return 'Failure.internalServerError()';
+    return 'AuthFailure.internalServerError()';
   }
 
   @override
@@ -397,7 +399,7 @@ class _$InternalServerError implements InternalServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -418,7 +420,7 @@ class _$InternalServerError implements InternalServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -437,7 +439,7 @@ class _$InternalServerError implements InternalServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -458,7 +460,7 @@ class _$InternalServerError implements InternalServerError {
   }
 }
 
-abstract class InternalServerError implements Failure {
+abstract class InternalServerError implements AuthFailure {
   const factory InternalServerError() = _$InternalServerError;
 }
 
@@ -471,7 +473,7 @@ abstract class _$$NetworkErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$NetworkErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$NetworkError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$NetworkError>
     implements _$$NetworkErrorCopyWith<$Res> {
   __$$NetworkErrorCopyWithImpl(
       _$NetworkError _value, $Res Function(_$NetworkError) _then)
@@ -485,7 +487,7 @@ class _$NetworkError implements NetworkError {
 
   @override
   String toString() {
-    return 'Failure.networkError()';
+    return 'AuthFailure.networkError()';
   }
 
   @override
@@ -561,7 +563,7 @@ class _$NetworkError implements NetworkError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -582,7 +584,7 @@ class _$NetworkError implements NetworkError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -601,7 +603,7 @@ class _$NetworkError implements NetworkError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -622,7 +624,7 @@ class _$NetworkError implements NetworkError {
   }
 }
 
-abstract class NetworkError implements Failure {
+abstract class NetworkError implements AuthFailure {
   const factory NetworkError() = _$NetworkError;
 }
 
@@ -635,7 +637,7 @@ abstract class _$$CacheErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$CacheErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$CacheError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$CacheError>
     implements _$$CacheErrorCopyWith<$Res> {
   __$$CacheErrorCopyWithImpl(
       _$CacheError _value, $Res Function(_$CacheError) _then)
@@ -649,7 +651,7 @@ class _$CacheError implements CacheError {
 
   @override
   String toString() {
-    return 'Failure.cacheError()';
+    return 'AuthFailure.cacheError()';
   }
 
   @override
@@ -725,7 +727,7 @@ class _$CacheError implements CacheError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -746,7 +748,7 @@ class _$CacheError implements CacheError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -765,7 +767,7 @@ class _$CacheError implements CacheError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -786,7 +788,7 @@ class _$CacheError implements CacheError {
   }
 }
 
-abstract class CacheError implements Failure {
+abstract class CacheError implements AuthFailure {
   const factory CacheError() = _$CacheError;
 }
 
@@ -799,7 +801,7 @@ abstract class _$$UnauthorizedErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnauthorizedErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$UnauthorizedError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UnauthorizedError>
     implements _$$UnauthorizedErrorCopyWith<$Res> {
   __$$UnauthorizedErrorCopyWithImpl(
       _$UnauthorizedError _value, $Res Function(_$UnauthorizedError) _then)
@@ -813,7 +815,7 @@ class _$UnauthorizedError implements UnauthorizedError {
 
   @override
   String toString() {
-    return 'Failure.unauthorizedError()';
+    return 'AuthFailure.unauthorizedError()';
   }
 
   @override
@@ -889,7 +891,7 @@ class _$UnauthorizedError implements UnauthorizedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -910,7 +912,7 @@ class _$UnauthorizedError implements UnauthorizedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -929,7 +931,7 @@ class _$UnauthorizedError implements UnauthorizedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -950,7 +952,7 @@ class _$UnauthorizedError implements UnauthorizedError {
   }
 }
 
-abstract class UnauthorizedError implements Failure {
+abstract class UnauthorizedError implements AuthFailure {
   const factory UnauthorizedError() = _$UnauthorizedError;
 }
 
@@ -963,7 +965,7 @@ abstract class _$$EmailAlreadyExistsErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$EmailAlreadyExistsErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$EmailAlreadyExistsError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$EmailAlreadyExistsError>
     implements _$$EmailAlreadyExistsErrorCopyWith<$Res> {
   __$$EmailAlreadyExistsErrorCopyWithImpl(_$EmailAlreadyExistsError _value,
       $Res Function(_$EmailAlreadyExistsError) _then)
@@ -977,7 +979,7 @@ class _$EmailAlreadyExistsError implements EmailAlreadyExistsError {
 
   @override
   String toString() {
-    return 'Failure.emailAlreadyExistsError()';
+    return 'AuthFailure.emailAlreadyExistsError()';
   }
 
   @override
@@ -1054,7 +1056,7 @@ class _$EmailAlreadyExistsError implements EmailAlreadyExistsError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1075,7 +1077,7 @@ class _$EmailAlreadyExistsError implements EmailAlreadyExistsError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1094,7 +1096,7 @@ class _$EmailAlreadyExistsError implements EmailAlreadyExistsError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1115,7 +1117,7 @@ class _$EmailAlreadyExistsError implements EmailAlreadyExistsError {
   }
 }
 
-abstract class EmailAlreadyExistsError implements Failure {
+abstract class EmailAlreadyExistsError implements AuthFailure {
   const factory EmailAlreadyExistsError() = _$EmailAlreadyExistsError;
 }
 
@@ -1128,7 +1130,7 @@ abstract class _$$UserNotFoundErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserNotFoundErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$UserNotFoundError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UserNotFoundError>
     implements _$$UserNotFoundErrorCopyWith<$Res> {
   __$$UserNotFoundErrorCopyWithImpl(
       _$UserNotFoundError _value, $Res Function(_$UserNotFoundError) _then)
@@ -1142,7 +1144,7 @@ class _$UserNotFoundError implements UserNotFoundError {
 
   @override
   String toString() {
-    return 'Failure.userNotFoundError()';
+    return 'AuthFailure.userNotFoundError()';
   }
 
   @override
@@ -1218,7 +1220,7 @@ class _$UserNotFoundError implements UserNotFoundError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1239,7 +1241,7 @@ class _$UserNotFoundError implements UserNotFoundError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1258,7 +1260,7 @@ class _$UserNotFoundError implements UserNotFoundError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1279,7 +1281,7 @@ class _$UserNotFoundError implements UserNotFoundError {
   }
 }
 
-abstract class UserNotFoundError implements Failure {
+abstract class UserNotFoundError implements AuthFailure {
   const factory UserNotFoundError() = _$UserNotFoundError;
 }
 
@@ -1292,7 +1294,7 @@ abstract class _$$NotFoundErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$NotFoundErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$NotFoundError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$NotFoundError>
     implements _$$NotFoundErrorCopyWith<$Res> {
   __$$NotFoundErrorCopyWithImpl(
       _$NotFoundError _value, $Res Function(_$NotFoundError) _then)
@@ -1306,7 +1308,7 @@ class _$NotFoundError implements NotFoundError {
 
   @override
   String toString() {
-    return 'Failure.notFoundError()';
+    return 'AuthFailure.notFoundError()';
   }
 
   @override
@@ -1382,7 +1384,7 @@ class _$NotFoundError implements NotFoundError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1403,7 +1405,7 @@ class _$NotFoundError implements NotFoundError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1422,7 +1424,7 @@ class _$NotFoundError implements NotFoundError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1443,7 +1445,7 @@ class _$NotFoundError implements NotFoundError {
   }
 }
 
-abstract class NotFoundError implements Failure {
+abstract class NotFoundError implements AuthFailure {
   const factory NotFoundError() = _$NotFoundError;
 }
 
@@ -1456,7 +1458,7 @@ abstract class _$$InvalidCredentialsErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$InvalidCredentialsErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$InvalidCredentialsError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidCredentialsError>
     implements _$$InvalidCredentialsErrorCopyWith<$Res> {
   __$$InvalidCredentialsErrorCopyWithImpl(_$InvalidCredentialsError _value,
       $Res Function(_$InvalidCredentialsError) _then)
@@ -1470,7 +1472,7 @@ class _$InvalidCredentialsError implements InvalidCredentialsError {
 
   @override
   String toString() {
-    return 'Failure.invalidCredentialsError()';
+    return 'AuthFailure.invalidCredentialsError()';
   }
 
   @override
@@ -1547,7 +1549,7 @@ class _$InvalidCredentialsError implements InvalidCredentialsError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1568,7 +1570,7 @@ class _$InvalidCredentialsError implements InvalidCredentialsError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1587,7 +1589,7 @@ class _$InvalidCredentialsError implements InvalidCredentialsError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1608,7 +1610,7 @@ class _$InvalidCredentialsError implements InvalidCredentialsError {
   }
 }
 
-abstract class InvalidCredentialsError implements Failure {
+abstract class InvalidCredentialsError implements AuthFailure {
   const factory InvalidCredentialsError() = _$InvalidCredentialsError;
 }
 
@@ -1621,7 +1623,7 @@ abstract class _$$TokenExpiredErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$TokenExpiredErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$TokenExpiredError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$TokenExpiredError>
     implements _$$TokenExpiredErrorCopyWith<$Res> {
   __$$TokenExpiredErrorCopyWithImpl(
       _$TokenExpiredError _value, $Res Function(_$TokenExpiredError) _then)
@@ -1635,7 +1637,7 @@ class _$TokenExpiredError implements TokenExpiredError {
 
   @override
   String toString() {
-    return 'Failure.tokenExpiredError()';
+    return 'AuthFailure.tokenExpiredError()';
   }
 
   @override
@@ -1711,7 +1713,7 @@ class _$TokenExpiredError implements TokenExpiredError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1732,7 +1734,7 @@ class _$TokenExpiredError implements TokenExpiredError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1751,7 +1753,7 @@ class _$TokenExpiredError implements TokenExpiredError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1772,7 +1774,7 @@ class _$TokenExpiredError implements TokenExpiredError {
   }
 }
 
-abstract class TokenExpiredError implements Failure {
+abstract class TokenExpiredError implements AuthFailure {
   const factory TokenExpiredError() = _$TokenExpiredError;
 }
 
@@ -1785,7 +1787,7 @@ abstract class _$$UnexpectedErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnexpectedErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$UnexpectedError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UnexpectedError>
     implements _$$UnexpectedErrorCopyWith<$Res> {
   __$$UnexpectedErrorCopyWithImpl(
       _$UnexpectedError _value, $Res Function(_$UnexpectedError) _then)
@@ -1799,7 +1801,7 @@ class _$UnexpectedError implements UnexpectedError {
 
   @override
   String toString() {
-    return 'Failure.unexpectedError()';
+    return 'AuthFailure.unexpectedError()';
   }
 
   @override
@@ -1875,7 +1877,7 @@ class _$UnexpectedError implements UnexpectedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -1896,7 +1898,7 @@ class _$UnexpectedError implements UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -1915,7 +1917,7 @@ class _$UnexpectedError implements UnexpectedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -1936,7 +1938,7 @@ class _$UnexpectedError implements UnexpectedError {
   }
 }
 
-abstract class UnexpectedError implements Failure {
+abstract class UnexpectedError implements AuthFailure {
   const factory UnexpectedError() = _$UnexpectedError;
 }
 
@@ -1949,7 +1951,7 @@ abstract class _$$UnknownErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnknownErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res, _$UnknownError>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UnknownError>
     implements _$$UnknownErrorCopyWith<$Res> {
   __$$UnknownErrorCopyWithImpl(
       _$UnknownError _value, $Res Function(_$UnknownError) _then)
@@ -1963,7 +1965,7 @@ class _$UnknownError implements UnknownError {
 
   @override
   String toString() {
-    return 'Failure.unknownError()';
+    return 'AuthFailure.unknownError()';
   }
 
   @override
@@ -2039,7 +2041,7 @@ class _$UnknownError implements UnknownError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_Failure value) $default, {
+    TResult Function(_AuthFailure value) $default, {
     required TResult Function(InternalServerError value) internalServerError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(CacheError value) cacheError,
@@ -2060,7 +2062,7 @@ class _$UnknownError implements UnknownError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Failure value)? $default, {
+    TResult? Function(_AuthFailure value)? $default, {
     TResult? Function(InternalServerError value)? internalServerError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(CacheError value)? cacheError,
@@ -2079,7 +2081,7 @@ class _$UnknownError implements UnknownError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Failure value)? $default, {
+    TResult Function(_AuthFailure value)? $default, {
     TResult Function(InternalServerError value)? internalServerError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(CacheError value)? cacheError,
@@ -2100,6 +2102,6 @@ class _$UnknownError implements UnknownError {
   }
 }
 
-abstract class UnknownError implements Failure {
+abstract class UnknownError implements AuthFailure {
   const factory UnknownError() = _$UnknownError;
 }
