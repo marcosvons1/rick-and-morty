@@ -19,6 +19,10 @@ void initDependencies() {
       ),
     )
     ..registerLazySingleton<Dio>(
-      () => Dio(BaseOptions(baseUrl: 'https://rickandmortyapi.com/api/')),
+      () => Dio(
+        BaseOptions(
+          baseUrl: 'https://rickandmortyapi.com/api/',
+        ),
+      ),
     );
 }

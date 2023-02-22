@@ -26,8 +26,8 @@ mixin _$CharacterDto {
   String get species => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
-  Map<String, dynamic> get origin => throw _privateConstructorUsedError;
-  Map<String, dynamic> get location => throw _privateConstructorUsedError;
+  Map<String, String> get origin => throw _privateConstructorUsedError;
+  Map<String, String> get location => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   List<String> get episode => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
@@ -52,8 +52,8 @@ abstract class $CharacterDtoCopyWith<$Res> {
       String species,
       String type,
       String gender,
-      Map<String, dynamic> origin,
-      Map<String, dynamic> location,
+      Map<String, String> origin,
+      Map<String, String> location,
       String image,
       List<String> episode,
       String url,
@@ -114,11 +114,11 @@ class _$CharacterDtoCopyWithImpl<$Res, $Val extends CharacterDto>
       origin: null == origin
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, String>,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, String>,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -154,8 +154,8 @@ abstract class _$$_CharacterDtoCopyWith<$Res>
       String species,
       String type,
       String gender,
-      Map<String, dynamic> origin,
-      Map<String, dynamic> location,
+      Map<String, String> origin,
+      Map<String, String> location,
       String image,
       List<String> episode,
       String url,
@@ -214,11 +214,11 @@ class __$$_CharacterDtoCopyWithImpl<$Res>
       origin: null == origin
           ? _value._origin
           : origin // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, String>,
       location: null == location
           ? _value._location
           : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, String>,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -249,8 +249,8 @@ class _$_CharacterDto extends _CharacterDto {
       required this.species,
       required this.type,
       required this.gender,
-      required final Map<String, dynamic> origin,
-      required final Map<String, dynamic> location,
+      required final Map<String, String> origin,
+      required final Map<String, String> location,
       required this.image,
       required final List<String> episode,
       required this.url,
@@ -275,16 +275,16 @@ class _$_CharacterDto extends _CharacterDto {
   final String type;
   @override
   final String gender;
-  final Map<String, dynamic> _origin;
+  final Map<String, String> _origin;
   @override
-  Map<String, dynamic> get origin {
+  Map<String, String> get origin {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_origin);
   }
 
-  final Map<String, dynamic> _location;
+  final Map<String, String> _location;
   @override
-  Map<String, dynamic> get location {
+  Map<String, String> get location {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_location);
   }
@@ -366,8 +366,8 @@ abstract class _CharacterDto extends CharacterDto {
       required final String species,
       required final String type,
       required final String gender,
-      required final Map<String, dynamic> origin,
-      required final Map<String, dynamic> location,
+      required final Map<String, String> origin,
+      required final Map<String, String> location,
       required final String image,
       required final List<String> episode,
       required final String url,
@@ -390,9 +390,9 @@ abstract class _CharacterDto extends CharacterDto {
   @override
   String get gender;
   @override
-  Map<String, dynamic> get origin;
+  Map<String, String> get origin;
   @override
-  Map<String, dynamic> get location;
+  Map<String, String> get location;
   @override
   String get image;
   @override

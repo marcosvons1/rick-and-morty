@@ -14,8 +14,8 @@ _$_CharacterDto _$$_CharacterDtoFromJson(Map<String, dynamic> json) =>
       species: json['species'] as String,
       type: json['type'] as String,
       gender: json['gender'] as String,
-      origin: json['origin'] as Map<String, dynamic>,
-      location: json['location'] as Map<String, dynamic>,
+      origin: Map<String, String>.from(json['origin'] as Map),
+      location: Map<String, String>.from(json['location'] as Map),
       image: json['image'] as String,
       episode:
           (json['episode'] as List<dynamic>).map((e) => e as String).toList(),

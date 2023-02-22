@@ -9,9 +9,9 @@ part 'episode_dto.g.dart';
 @freezed
 class EpisodeDto with _$EpisodeDto {
   const factory EpisodeDto({
-    required String id,
+    required int id,
     required String name,
-    required String airDate,
+    @JsonKey(name: 'air_date') required String airDate,
     required String episode,
     required List<String> characters,
     required String url,
@@ -29,7 +29,7 @@ class EpisodeDto with _$EpisodeDto {
       name: name,
       airDate: airDate,
       episode: episode,
-      characters: characters,
+      characters: null,
       url: url,
       created: created,
     );

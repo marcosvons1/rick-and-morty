@@ -20,8 +20,9 @@ EpisodeDto _$EpisodeDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EpisodeDto {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'air_date')
   String get airDate => throw _privateConstructorUsedError;
   String get episode => throw _privateConstructorUsedError;
   List<String> get characters => throw _privateConstructorUsedError;
@@ -41,9 +42,9 @@ abstract class $EpisodeDtoCopyWith<$Res> {
       _$EpisodeDtoCopyWithImpl<$Res, EpisodeDto>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
-      String airDate,
+      @JsonKey(name: 'air_date') String airDate,
       String episode,
       List<String> characters,
       String url,
@@ -75,7 +76,7 @@ class _$EpisodeDtoCopyWithImpl<$Res, $Val extends EpisodeDto>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -113,9 +114,9 @@ abstract class _$$_EpisodeDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
-      String airDate,
+      @JsonKey(name: 'air_date') String airDate,
       String episode,
       List<String> characters,
       String url,
@@ -145,7 +146,7 @@ class __$$_EpisodeDtoCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -180,7 +181,7 @@ class _$_EpisodeDto extends _EpisodeDto {
   const _$_EpisodeDto(
       {required this.id,
       required this.name,
-      required this.airDate,
+      @JsonKey(name: 'air_date') required this.airDate,
       required this.episode,
       required final List<String> characters,
       required this.url,
@@ -192,10 +193,11 @@ class _$_EpisodeDto extends _EpisodeDto {
       _$$_EpisodeDtoFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
+  @JsonKey(name: 'air_date')
   final String airDate;
   @override
   final String episode;
@@ -252,9 +254,9 @@ class _$_EpisodeDto extends _EpisodeDto {
 
 abstract class _EpisodeDto extends EpisodeDto {
   const factory _EpisodeDto(
-      {required final String id,
+      {required final int id,
       required final String name,
-      required final String airDate,
+      @JsonKey(name: 'air_date') required final String airDate,
       required final String episode,
       required final List<String> characters,
       required final String url,
@@ -265,10 +267,11 @@ abstract class _EpisodeDto extends EpisodeDto {
       _$_EpisodeDto.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
+  @JsonKey(name: 'air_date')
   String get airDate;
   @override
   String get episode;

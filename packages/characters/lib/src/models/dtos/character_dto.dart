@@ -15,8 +15,8 @@ class CharacterDto with _$CharacterDto {
     required String species,
     required String type,
     required String gender,
-    required Map<String, dynamic> origin,
-    required Map<String, dynamic> location,
+    required Map<String, String> origin,
+    required Map<String, String> location,
     required String image,
     required List<String> episode,
     required String url,
@@ -28,7 +28,11 @@ class CharacterDto with _$CharacterDto {
   factory CharacterDto.fromJson(Map<String, dynamic> json) =>
       _$CharacterDtoFromJson(json);
 
-  Character toModel() {
+  Character toModel({
+    required List<EpisodeDto> episodes,
+    LocationDto? location,
+    LocationDto? origin,
+  }) {
     return Character(
       id: id,
       name: name,
@@ -36,10 +40,10 @@ class CharacterDto with _$CharacterDto {
       species: species,
       type: type,
       gender: gender,
-      origin: origin,
-      location: location,
+      origin: origin?.toModel(),
+      location: location?.toModel(),
       image: image,
-      episode: episode,
+      episode: episodes.map((e) => e.toModel()).toList(),
       url: url,
       created: created,
     );

@@ -12,7 +12,7 @@ class Location with _$Location {
     required String name,
     required String type,
     required String dimension,
-    required List<String> residents,
+    List<Character>? residents,
     required String url,
     required DateTime created,
   }) = _Location;

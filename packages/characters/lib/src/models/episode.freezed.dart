@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Episode {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get airDate => throw _privateConstructorUsedError;
   String get episode => throw _privateConstructorUsedError;
-  List<String> get characters => throw _privateConstructorUsedError;
+  List<Character>? get characters => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
 
@@ -34,11 +34,11 @@ abstract class $EpisodeCopyWith<$Res> {
       _$EpisodeCopyWithImpl<$Res, Episode>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String airDate,
       String episode,
-      List<String> characters,
+      List<Character>? characters,
       String url,
       DateTime created});
 }
@@ -60,7 +60,7 @@ class _$EpisodeCopyWithImpl<$Res, $Val extends Episode>
     Object? name = null,
     Object? airDate = null,
     Object? episode = null,
-    Object? characters = null,
+    Object? characters = freezed,
     Object? url = null,
     Object? created = null,
   }) {
@@ -68,7 +68,7 @@ class _$EpisodeCopyWithImpl<$Res, $Val extends Episode>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -81,10 +81,10 @@ class _$EpisodeCopyWithImpl<$Res, $Val extends Episode>
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
               as String,
-      characters: null == characters
+      characters: freezed == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Character>?,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -105,11 +105,11 @@ abstract class _$$_EpisodeCopyWith<$Res> implements $EpisodeCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       String airDate,
       String episode,
-      List<String> characters,
+      List<Character>? characters,
       String url,
       DateTime created});
 }
@@ -128,7 +128,7 @@ class __$$_EpisodeCopyWithImpl<$Res>
     Object? name = null,
     Object? airDate = null,
     Object? episode = null,
-    Object? characters = null,
+    Object? characters = freezed,
     Object? url = null,
     Object? created = null,
   }) {
@@ -136,7 +136,7 @@ class __$$_EpisodeCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -149,10 +149,10 @@ class __$$_EpisodeCopyWithImpl<$Res>
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
               as String,
-      characters: null == characters
+      characters: freezed == characters
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Character>?,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -173,24 +173,26 @@ class _$_Episode implements _Episode {
       required this.name,
       required this.airDate,
       required this.episode,
-      required final List<String> characters,
+      final List<Character>? characters,
       required this.url,
       required this.created})
       : _characters = characters;
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
   final String airDate;
   @override
   final String episode;
-  final List<String> _characters;
+  final List<Character>? _characters;
   @override
-  List<String> get characters {
+  List<Character>? get characters {
+    final value = _characters;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_characters);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -231,16 +233,16 @@ class _$_Episode implements _Episode {
 
 abstract class _Episode implements Episode {
   const factory _Episode(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final String airDate,
       required final String episode,
-      required final List<String> characters,
+      final List<Character>? characters,
       required final String url,
       required final DateTime created}) = _$_Episode;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
@@ -248,7 +250,7 @@ abstract class _Episode implements Episode {
   @override
   String get episode;
   @override
-  List<String> get characters;
+  List<Character>? get characters;
   @override
   String get url;
   @override

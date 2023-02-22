@@ -20,7 +20,7 @@ mixin _$Location {
   String get name => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get dimension => throw _privateConstructorUsedError;
-  List<String> get residents => throw _privateConstructorUsedError;
+  List<Character>? get residents => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $LocationCopyWith<$Res> {
       String name,
       String type,
       String dimension,
-      List<String> residents,
+      List<Character>? residents,
       String url,
       DateTime created});
 }
@@ -61,7 +61,7 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
     Object? name = null,
     Object? type = null,
     Object? dimension = null,
-    Object? residents = null,
+    Object? residents = freezed,
     Object? url = null,
     Object? created = null,
   }) {
@@ -82,10 +82,10 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
           ? _value.dimension
           : dimension // ignore: cast_nullable_to_non_nullable
               as String,
-      residents: null == residents
+      residents: freezed == residents
           ? _value.residents
           : residents // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Character>?,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$_LocationCopyWith<$Res> implements $LocationCopyWith<$Res> {
       String name,
       String type,
       String dimension,
-      List<String> residents,
+      List<Character>? residents,
       String url,
       DateTime created});
 }
@@ -130,7 +130,7 @@ class __$$_LocationCopyWithImpl<$Res>
     Object? name = null,
     Object? type = null,
     Object? dimension = null,
-    Object? residents = null,
+    Object? residents = freezed,
     Object? url = null,
     Object? created = null,
   }) {
@@ -151,10 +151,10 @@ class __$$_LocationCopyWithImpl<$Res>
           ? _value.dimension
           : dimension // ignore: cast_nullable_to_non_nullable
               as String,
-      residents: null == residents
+      residents: freezed == residents
           ? _value._residents
           : residents // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Character>?,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ class _$_Location implements _Location {
       required this.name,
       required this.type,
       required this.dimension,
-      required final List<String> residents,
+      final List<Character>? residents,
       required this.url,
       required this.created})
       : _residents = residents;
@@ -188,11 +188,13 @@ class _$_Location implements _Location {
   final String type;
   @override
   final String dimension;
-  final List<String> _residents;
+  final List<Character>? _residents;
   @override
-  List<String> get residents {
+  List<Character>? get residents {
+    final value = _residents;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_residents);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -238,7 +240,7 @@ abstract class _Location implements Location {
       required final String name,
       required final String type,
       required final String dimension,
-      required final List<String> residents,
+      final List<Character>? residents,
       required final String url,
       required final DateTime created}) = _$_Location;
 
@@ -251,7 +253,7 @@ abstract class _Location implements Location {
   @override
   String get dimension;
   @override
-  List<String> get residents;
+  List<Character>? get residents;
   @override
   String get url;
   @override

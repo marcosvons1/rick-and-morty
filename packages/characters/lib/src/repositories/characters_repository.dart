@@ -22,16 +22,58 @@ class CharactersRepository implements ICharactersRepository {
   Future<Either<Failure, List<Character>>> getCharacters({
     required int page,
   }) async {
+    final characters = <Character>[];
+    LocationDto? locationDto;
+    LocationDto? originDto;
+    final episodes = <EpisodeDto>[];
+
     try {
       final charactersDto = await _charactersService.getCharacters(page: page);
-      try {
-        final characters = charactersDto.map((e) => e.toModel()).toList();
-        return Right(characters);
-      } catch (e) {
-        throw ModelException();
+      for (final characterDto in charactersDto) {
+        for (final episodeUrl in characterDto.episode) {
+          try {
+            final episode = await _charactersService.getEpisode(
+              episodeId: episodeUrl.substring(episodeUrl.lastIndexOf('/') + 1),
+            );
+
+            episodes.add(episode);
+          } catch (e) {
+            continue;
+          }
+        }
+        if (characterDto.location['url']!.isNotEmpty) {
+          locationDto = await _charactersService.getLocation(
+            locationUrl: characterDto.location['url']!
+                .substring(characterDto.location['url']!.lastIndexOf('/') + 1),
+          );
+        }
+        if (characterDto.origin['url']!.isNotEmpty) {
+          originDto = await _charactersService.getLocation(
+            locationUrl: characterDto.origin['url']!
+                .substring(characterDto.origin['url']!.lastIndexOf('/') + 1),
+          );
+        }
+        characters.add(
+          characterDto.toModel(
+            episodes: episodes,
+            location: locationDto,
+            origin: originDto,
+          ),
+        );
+        episodes.clear();
       }
-    } catch (e) {
+
+      return Right(characters);
+    } on ConnectionErrorException {
+      return const Left(Failure.http());
+    } on TimeoutException {
+      return const Left(Failure.connectTimeout());
+    } on UnknownNetworkException {
       return const Left(Failure.unknown());
+    } on JsonDeserializationException {
+      return const Left(Failure.jsonDes());
+    } catch (e) {
+      return const Left(Failure.parseModel());
     }
   }
 

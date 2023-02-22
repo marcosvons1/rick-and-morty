@@ -29,7 +29,6 @@ class LocationDto with _$LocationDto {
       name: name,
       type: type,
       dimension: dimension,
-      residents: residents,
       url: url,
       created: created,
     );

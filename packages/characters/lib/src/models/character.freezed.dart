@@ -22,10 +22,10 @@ mixin _$Character {
   String get species => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
-  Map<String, dynamic> get origin => throw _privateConstructorUsedError;
-  Map<String, dynamic> get location => throw _privateConstructorUsedError;
+  Location? get origin => throw _privateConstructorUsedError;
+  Location? get location => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  List<String> get episode => throw _privateConstructorUsedError;
+  List<Episode> get episode => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   DateTime get created => throw _privateConstructorUsedError;
 
@@ -46,12 +46,15 @@ abstract class $CharacterCopyWith<$Res> {
       String species,
       String type,
       String gender,
-      Map<String, dynamic> origin,
-      Map<String, dynamic> location,
+      Location? origin,
+      Location? location,
       String image,
-      List<String> episode,
+      List<Episode> episode,
       String url,
       DateTime created});
+
+  $LocationCopyWith<$Res>? get origin;
+  $LocationCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -73,8 +76,8 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? species = null,
     Object? type = null,
     Object? gender = null,
-    Object? origin = null,
-    Object? location = null,
+    Object? origin = freezed,
+    Object? location = freezed,
     Object? image = null,
     Object? episode = null,
     Object? url = null,
@@ -105,14 +108,14 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      origin: null == origin
+      origin: freezed == origin
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      location: null == location
+              as Location?,
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Location?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -120,7 +123,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
       episode: null == episode
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Episode>,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -130,6 +133,30 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           : created // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationCopyWith<$Res>? get origin {
+    if (_value.origin == null) {
+      return null;
+    }
+
+    return $LocationCopyWith<$Res>(_value.origin!, (value) {
+      return _then(_value.copyWith(origin: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $LocationCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 }
 
@@ -147,12 +174,17 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       String species,
       String type,
       String gender,
-      Map<String, dynamic> origin,
-      Map<String, dynamic> location,
+      Location? origin,
+      Location? location,
       String image,
-      List<String> episode,
+      List<Episode> episode,
       String url,
       DateTime created});
+
+  @override
+  $LocationCopyWith<$Res>? get origin;
+  @override
+  $LocationCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -172,8 +204,8 @@ class __$$_CharacterCopyWithImpl<$Res>
     Object? species = null,
     Object? type = null,
     Object? gender = null,
-    Object? origin = null,
-    Object? location = null,
+    Object? origin = freezed,
+    Object? location = freezed,
     Object? image = null,
     Object? episode = null,
     Object? url = null,
@@ -204,14 +236,14 @@ class __$$_CharacterCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      origin: null == origin
-          ? _value._origin
+      origin: freezed == origin
+          ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      location: null == location
-          ? _value._location
+              as Location?,
+      location: freezed == location
+          ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Location?,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -219,7 +251,7 @@ class __$$_CharacterCopyWithImpl<$Res>
       episode: null == episode
           ? _value._episode
           : episode // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<Episode>,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -242,15 +274,13 @@ class _$_Character implements _Character {
       required this.species,
       required this.type,
       required this.gender,
-      required final Map<String, dynamic> origin,
-      required final Map<String, dynamic> location,
+      required this.origin,
+      required this.location,
       required this.image,
-      required final List<String> episode,
+      required final List<Episode> episode,
       required this.url,
       required this.created})
-      : _origin = origin,
-        _location = location,
-        _episode = episode;
+      : _episode = episode;
 
   @override
   final int id;
@@ -264,25 +294,15 @@ class _$_Character implements _Character {
   final String type;
   @override
   final String gender;
-  final Map<String, dynamic> _origin;
   @override
-  Map<String, dynamic> get origin {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_origin);
-  }
-
-  final Map<String, dynamic> _location;
+  final Location? origin;
   @override
-  Map<String, dynamic> get location {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_location);
-  }
-
+  final Location? location;
   @override
   final String image;
-  final List<String> _episode;
+  final List<Episode> _episode;
   @override
-  List<String> get episode {
+  List<Episode> get episode {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_episode);
   }
@@ -308,8 +328,9 @@ class _$_Character implements _Character {
             (identical(other.species, species) || other.species == species) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            const DeepCollectionEquality().equals(other._origin, _origin) &&
-            const DeepCollectionEquality().equals(other._location, _location) &&
+            (identical(other.origin, origin) || other.origin == origin) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.image, image) || other.image == image) &&
             const DeepCollectionEquality().equals(other._episode, _episode) &&
             (identical(other.url, url) || other.url == url) &&
@@ -325,8 +346,8 @@ class _$_Character implements _Character {
       species,
       type,
       gender,
-      const DeepCollectionEquality().hash(_origin),
-      const DeepCollectionEquality().hash(_location),
+      origin,
+      location,
       image,
       const DeepCollectionEquality().hash(_episode),
       url,
@@ -347,10 +368,10 @@ abstract class _Character implements Character {
       required final String species,
       required final String type,
       required final String gender,
-      required final Map<String, dynamic> origin,
-      required final Map<String, dynamic> location,
+      required final Location? origin,
+      required final Location? location,
       required final String image,
-      required final List<String> episode,
+      required final List<Episode> episode,
       required final String url,
       required final DateTime created}) = _$_Character;
 
@@ -367,13 +388,13 @@ abstract class _Character implements Character {
   @override
   String get gender;
   @override
-  Map<String, dynamic> get origin;
+  Location? get origin;
   @override
-  Map<String, dynamic> get location;
+  Location? get location;
   @override
   String get image;
   @override
-  List<String> get episode;
+  List<Episode> get episode;
   @override
   String get url;
   @override

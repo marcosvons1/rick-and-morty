@@ -14,10 +14,10 @@ class Character with _$Character {
     required String species,
     required String type,
     required String gender,
-    required Map<String, dynamic> origin,
-    required Map<String, dynamic> location,
+    required Location? origin,
+    required Location? location,
     required String image,
-    required List<String> episode,
+    required List<Episode> episode,
     required String url,
     required DateTime created,
   }) = _Character;
